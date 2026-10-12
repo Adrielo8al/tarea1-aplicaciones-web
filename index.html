@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Servicio Web</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- Encabezado y Navegación -->
+  <header>
+    <h1>Servicio Técnico Especializado</h1>
+    <button id="btn-menu" aria-expanded="false" aria-controls="menu-navegacion">☰ Menú</button>
+    <nav id="menu-navegacion" class="menu-oculto">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Sección 1: Inicio -->
+    <section id="inicio">
+      <h2>Soluciones Profesionales</h2>
+      <p>Mantenimiento preventivo, soporte y diagnóstico técnico confiable.</p>
+    </section>
+
+    <!-- Sección 2: Servicios -->
+    <section id="servicios">
+      <h2>Nuestros Servicios</h2>
+      <div class="contenedor-tarjetas">
+        <article class="tarjeta">
+          <h3>Mantenimiento</h3>
+          <p>Revisión periódica y calibración de sistemas.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Diagnóstico</h3>
+          <p>Detección rápida de fallas operativas y electrónicas.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Optimización</h3>
+          <p>Mejora continua del rendimiento de equipos.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sección 3: Galería -->
+    <section id="galeria">
+      <h2>Galería de Equipos</h2>
+      <div class="grilla-galeria">
+        <img src="https://picsum.photos/400/300?random=1" alt="Panel de control en revisión técnica">
+        <img src="https://picsum.photos/400/300?random=2" alt="Técnico realizando pruebas de diagnóstico">
+      </div>
+    </section>
+
+    <!-- Sección 4: Contacto y Formulario Accesible -->
+    <section id="contacto">
+      <h2>Contáctanos</h2>
+      <form id="formulario-contacto">
+        <div>
+          <label for="nombre">Nombre completo:</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div>
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" name="correo" required>
+        </div>
+        <div>
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </div>
+        <button type="submit">Enviar solicitud</button>
+        <p id="mensaje-estado" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
