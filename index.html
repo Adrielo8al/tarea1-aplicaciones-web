@@ -5,14 +5,278 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicio Técnico Especializado</title>
   <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* VARIABLES */
+    :root {
+      --color-primario: #0056b3;
+      --color-secundario: #003d80;
+      --color-fondo: #f0f2f5;
+      --color-blanco: #ffffff;
+      --color-texto: #1a1a1a;
+      --color-borde: #d1d5db;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--color-texto);
+      background-color: var(--color-fondo);
+      padding: 1rem;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--color-primario);
+      outline-offset: 2px;
+    }
+
+    /* ENCABEZADO Y MENU */
+    header {
+      background-color: var(--color-blanco);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .barra-superior {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.25rem;
+      color: var(--color-primario);
+    }
+
+    /* Boton de menu visible en celulares */
+    #btn-menu {
+      display: inline-block;
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      border: none;
+      padding: 0.55rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #btn-menu:hover {
+      background-color: var(--color-secundario);
+    }
+
+    .menu-oculto {
+      display: none;
+    }
+
+    .menu-visible {
+      display: block;
+      margin-top: 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--color-borde);
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav li {
+      margin-bottom: 0.4rem;
+    }
+
+    nav a {
+      display: block;
+      text-decoration: none;
+      color: var(--color-primario);
+      font-weight: bold;
+      padding: 0.4rem;
+      border-radius: 4px;
+    }
+
+    nav a:hover {
+      background-color: #e9ecef;
+    }
+
+    /* SECCIONES */
+    main section {
+      background-color: var(--color-blanco);
+      padding: 1.2rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    section h2 {
+      font-size: 1.2rem;
+      color: var(--color-primario);
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid #e9ecef;
+      padding-bottom: 0.4rem;
+    }
+
+    /* SERVICIOS: 1 columna en movil */
+    .contenedor-tarjetas {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .tarjeta {
+      border: 1px solid var(--color-borde);
+      border-left: 5px solid var(--color-primario);
+      border-radius: 6px;
+      padding: 1rem;
+      background-color: #fafafa;
+    }
+
+    .tarjeta h3 {
+      color: var(--color-secundario);
+      margin-bottom: 0.3rem;
+      font-size: 1.05rem;
+    }
+
+    /* GALERIA: 1 columna en movil */
+    .grilla-galeria {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .item-galeria {
+      background: #f8f9fa;
+      border: 1px solid var(--color-borde);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .caption {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      text-align: center;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* FORMULARIO */
+    .campo {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid var(--color-borde);
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    #btn-enviar {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #mensaje-estado {
+      margin-top: 0.8rem;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      color: #6c757d;
+      font-size: 0.85rem;
+      padding: 1rem 0;
+    }
+
+    /* MEDIA QUERY 1: TABLET (min-width: 768px) */
+    @media (min-width: 768px) {
+      #btn-menu {
+        display: none; /* En tablet el menu va completo */
+      }
+
+      .menu-oculto {
+        display: block;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 1.2rem;
+      }
+
+      nav li {
+        margin-bottom: 0;
+      }
+
+      /* Tarjetas en horizontal con Flexbox */
+      .contenedor-tarjetas {
+        flex-direction: row;
+      }
+
+      .tarjeta {
+        flex: 1;
+      }
+    }
+
+    /* MEDIA QUERY 2: ESCRITORIO (min-width: 1024px) */
+    @media (min-width: 1024px) {
+      body {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+
+      /* Galeria en 2 columnas con CSS Grid */
+      .grilla-galeria {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Encabezado y Navegación -->
+  <!-- Encabezado con Boton y Menu -->
   <header>
     <div class="barra-superior">
       <h1>Servicio Técnico Especializado</h1>
-      <button id="btn-menu" aria-expanded="false" aria-controls="menu-navegacion">☰ Menú</button>
+      <button type="button" id="btn-menu" aria-expanded="false" aria-controls="menu-navegacion">☰ Menú</button>
     </div>
     <nav id="menu-navegacion" class="menu-oculto">
       <ul>
@@ -25,13 +289,13 @@
   </header>
 
   <main>
-    <!-- Sección 1: Inicio -->
+    <!-- Seccion 1: Inicio -->
     <section id="inicio">
       <h2>Soluciones Profesionales</h2>
       <p>Mantenimiento preventivo, soporte y diagnóstico técnico confiable para equipos de alta precisión.</p>
     </section>
 
-    <!-- Sección 2: Servicios (Flexbox responsivo) -->
+    <!-- Seccion 2: Servicios -->
     <section id="servicios">
       <h2>Nuestros Servicios</h2>
       <div class="contenedor-tarjetas">
@@ -50,7 +314,7 @@
       </div>
     </section>
 
-    <!-- Sección 3: Galería (CSS Grid responsivo) -->
+    <!-- Seccion 3: Galeria -->
     <section id="galeria">
       <h2>Galería de Equipos</h2>
       <div class="grilla-galeria">
@@ -65,7 +329,7 @@
       </div>
     </section>
 
-    <!-- Sección 4: Formulario accesible -->
+    <!-- Seccion 4: Formulario -->
     <section id="contacto">
       <h2>Contáctanos</h2>
       <form id="formulario-contacto">
@@ -91,6 +355,43 @@
     <p>&copy; 2026 Servicio Técnico Especializado - Todos los derechos reservados.</p>
   </footer>
 
-  <script src="app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 1. Menu movil desplegable
+      var btn = document.getElementById("btn-menu");
+      var nav = document.getElementById("menu-navegacion");
+
+      if (btn && nav) {
+        btn.addEventListener("click", function () {
+          var abierto = nav.classList.toggle("menu-visible");
+          nav.classList.toggle("menu-oculto", !abierto);
+          btn.setAttribute("aria-expanded", String(abierto));
+        });
+      }
+
+      // 2. Validacion de formulario
+      var form = document.getElementById("formulario-contacto");
+      var estado = document.getElementById("mensaje-estado");
+
+      if (form && estado) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var nom = document.getElementById("nombre").value.trim();
+          var cor = document.getElementById("correo").value.trim();
+          var men = document.getElementById("mensaje").value.trim();
+
+          if (!nom || !cor || !men) {
+            estado.textContent = "Error: Por favor completa todos los campos.";
+            estado.style.color = "#dc3545";
+            return;
+          }
+
+          estado.textContent = "¡Gracias " + nom + "! Mensaje enviado con éxito.";
+          estado.style.color = "#198754";
+          form.reset();
+        });
+      }
+    });
+  </script>
 </body>
 </html>
