@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Servicio Web</title>
+  <title>Servicio Técnico Especializado</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
   <!-- Encabezado y Navegación -->
   <header>
-    <h1>Servicio Técnico Especializado</h1>
-    <button id="btn-menu" aria-expanded="false" aria-controls="menu-navegacion">☰ Menú</button>
+    <div class="barra-superior">
+      <h1>Servicio Técnico Especializado</h1>
+      <button id="btn-menu" aria-expanded="false" aria-controls="menu-navegacion">☰ Menú</button>
+    </div>
     <nav id="menu-navegacion" class="menu-oculto">
       <ul>
         <li><a href="#inicio">Inicio</a></li>
@@ -26,61 +28,67 @@
     <!-- Sección 1: Inicio -->
     <section id="inicio">
       <h2>Soluciones Profesionales</h2>
-      <p>Mantenimiento preventivo, soporte y diagnóstico técnico confiable.</p>
+      <p>Mantenimiento preventivo, soporte y diagnóstico técnico confiable para equipos de alta precisión.</p>
     </section>
 
-    <!-- Sección 2: Servicios -->
+    <!-- Sección 2: Servicios (Flexbox responsivo) -->
     <section id="servicios">
       <h2>Nuestros Servicios</h2>
       <div class="contenedor-tarjetas">
         <article class="tarjeta">
           <h3>Mantenimiento</h3>
-          <p>Revisión periódica y calibración de sistemas.</p>
+          <p>Revisión periódica y calibración de sistemas para garantizar su vida útil y rendimiento óptimo.</p>
         </article>
         <article class="tarjeta">
           <h3>Diagnóstico</h3>
-          <p>Detección rápida de fallas operativas y electrónicas.</p>
+          <p>Detección rápida de fallas operativas y electrónicas mediante instrumental especializado.</p>
         </article>
         <article class="tarjeta">
           <h3>Optimización</h3>
-          <p>Mejora continua del rendimiento de equipos.</p>
+          <p>Mejora continua del rendimiento de equipos e integración de nuevos módulos funcionales.</p>
         </article>
       </div>
     </section>
 
-    <!-- Sección 3: Galería -->
+    <!-- Sección 3: Galería (CSS Grid responsivo) -->
     <section id="galeria">
       <h2>Galería de Equipos</h2>
       <div class="grilla-galeria">
-        <img src="https://picsum.photos/400/300?random=1" alt="Panel de control en revisión técnica">
-        <img src="https://picsum.photos/400/300?random=2" alt="Técnico realizando pruebas de diagnóstico">
+        <div class="item-galeria">
+          <img src="https://picsum.photos/600/400?random=1" alt="Equipo de laboratorio en prueba técnica">
+          <p class="caption">Revisión de circuitos y fuentes</p>
+        </div>
+        <div class="item-galeria">
+          <img src="https://picsum.photos/600/400?random=2" alt="Técnico realizando calibración de instrumentos">
+          <p class="caption">Calibración de sensores</p>
+        </div>
       </div>
     </section>
 
-    <!-- Sección 4: Contacto y Formulario Accesible -->
+    <!-- Sección 4: Formulario accesible -->
     <section id="contacto">
       <h2>Contáctanos</h2>
       <form id="formulario-contacto">
-        <div>
+        <div class="campo">
           <label for="nombre">Nombre completo:</label>
-          <input type="text" id="nombre" name="nombre" required>
+          <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
         </div>
-        <div>
+        <div class="campo">
           <label for="correo">Correo electrónico:</label>
-          <input type="email" id="correo" name="correo" required>
+          <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
         </div>
-        <div>
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        <div class="campo">
+          <label for="mensaje">Mensaje o requerimiento:</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe el servicio requerido..." required></textarea>
         </div>
-        <button type="submit">Enviar solicitud</button>
+        <button type="submit" id="btn-enviar">Enviar solicitud</button>
         <p id="mensaje-estado" aria-live="polite"></p>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Todos los derechos reservados.</p>
+    <p>&copy; 2026 Servicio Técnico Especializado - Todos los derechos reservados.</p>
   </footer>
 
   <script src="app.js"></script>
